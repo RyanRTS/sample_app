@@ -1,0 +1,17 @@
+require 'test_helper'
+
+class SiteLayoutTest < ActionDispatch::IntegrationTest
+  
+  test "layout links" do
+    #checks fro presence of 'a' tag with href set as given path
+    get root_path
+    assert_template 'static_pages/home'
+    assert_select "a[href=?]", root_url, count: 2
+    assert_select "a[href=?]", help_path
+    assert_select "a[href=?]", about_path
+    assert_select "a[href=?]", contact_path
+    get contact_path
+    assert_select "title", full_title("Contact")
+  end
+  
+end
