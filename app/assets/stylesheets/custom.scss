@@ -84,6 +84,7 @@ footer {
   padding-top: 5px;
   border-top: 1px solid $gray-medium-light;
   color: $gray-light;
+}
 
 
   a {
@@ -106,7 +107,6 @@ footer {
       margin-left: 15px;
     }
   }
-  
 
   /* miscellaneous */
   
@@ -181,6 +181,4 @@ footer {
   .form-control {
     color: $state-danger-text;
   }
-}
-  
 }
