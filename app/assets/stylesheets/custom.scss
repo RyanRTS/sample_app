@@ -181,6 +181,7 @@ footer {
   .form-control {
     color: $state-danger-text;
   }
+}
   
 .checkbox {
   margin-top: -10px;
@@ -190,5 +191,16 @@ footer {
     font-weight: normal;
   }  
 }
-  
+
+/* Users index */
+
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid $gray-lighter;
+  }
 }
+  
