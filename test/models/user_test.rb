@@ -56,6 +56,10 @@ class UserTest < ActiveSupport::TestCase
     assert mixed_case_email.downcase, @user.reload.email
   end
   
+  test "authenticated? should return false for user with nil digest" do
+    assert_not @user.authenticated?(:remember, '')
+  end
+  
   test "password should be present" do
     @user.password = @user.password_confirmation = " " * 6
     assert_not @user.valid?

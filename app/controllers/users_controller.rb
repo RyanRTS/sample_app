@@ -14,10 +14,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      log_in @user
       # user is saved to db
-      flash[:success] = "Welcome!"
-      redirect_to @user #@user.id
+      @user.send_activation_email
+      flash[:info] = "Please check email to activate account"
+      redirect_to root_url
     else
       render 'new' #unable to save user, bring back the new user page
     end
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
   end
   
   def update
-    @user = User.find(params[:id])
+    @user = User.where(activated: true).find(params[:id])
     if @user.update_attributes(user_params)
       # successful update
       flash[:success] = "Profile updated"
